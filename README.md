@@ -1,5 +1,7 @@
 # human-skill
 
+> 🇰🇷 [한국어 README](./README.ko.md)
+
 **Human behavior mechanism engine with 16 axes and 44 meta-principles — diagnose, predict, and design based on cognitive science, influence theory, motivation, and behavior design.**
 
 ## Prerequisites
