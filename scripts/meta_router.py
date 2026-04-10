@@ -4,7 +4,8 @@
 
 사용법:
   python meta_router.py 축1 축5 축H        # 활성 축 → 메타원리 라우팅
-  python meta_router.py --detail 축1 축5    # 상세 모드: 자명명제+체인+설계원칙 포함
+  python meta_router.py --full 축1 축5 축H  # 통합: 라우팅+자명명제+설계원칙 1회
+  python meta_router.py --detail 축1 축5    # 상세 모드: 자명명제+체인+설계원칙
   python meta_router.py --axis 축1          # 특정 축 풀 상세 (체인 전문)
   python meta_router.py --axis 축E --table  # 축 상세 + 특수 테이블 포함
   python meta_router.py --mode 진단         # 모드별 실행 프로토콜
@@ -470,6 +471,41 @@ def print_detail_route(active_axes: list[str]):
     print("\n".join(lines))
 
 
+def print_full_route(active_axes: list[str]):
+    """통합 라우팅: 기본 라우팅 + 활성 축의 상세 정보 한 번에 출력."""
+    result = route(active_axes)
+
+    # 기본 라우팅 결과 출력
+    print(format_result(result))
+    print("\n" + "─" * 60 + "\n")
+
+    # 활성 축별 상세 요약 (--detail과 동일)
+    AXES, _, _ = _load_axes_data()
+    normalized = {normalize_axis(a) for a in active_axes}
+    lines = ["## 활성 축 상세", ""]
+
+    for ax_id in sorted(normalized):
+        if ax_id not in AXES:
+            continue
+        ax = AXES[ax_id]
+        lines.append(f"### 축{ax_id}. {ax['name']}")
+        lines.append(f"**자명명제**: {ax['axiom']}")
+        lines.append("")
+
+        # 체인 요약 (제목 + 의미만)
+        for chain in ax.get("chains", []):
+            meaning = chain.get("meaning", "")
+            lines.append(f"- **{chain['id']} {chain['title']}**: {meaning}")
+        lines.append("")
+
+        # 설계 원칙
+        if ax.get("design_principles"):
+            lines.append("**설계 원칙**: " + " | ".join(ax["design_principles"]))
+            lines.append("")
+
+    print("\n".join(lines))
+
+
 def print_mode(mode_name: str):
     """모드별 실행 프로토콜 출력."""
     _, _, MODE_PROTOCOLS = _load_axes_data()
@@ -539,6 +575,10 @@ if __name__ == "__main__":
         remaining = [a for a in args if a != "--mode"]
         for m in remaining:
             print_mode(m)
+    elif "--full" in args:
+        # 통합 라우팅 (기본 + 상세 한 번에)
+        axes = [a for a in args if a != "--full"]
+        print_full_route(axes)
     elif "--detail" in args:
         # 상세 라우팅
         axes = [a for a in args if a != "--detail"]

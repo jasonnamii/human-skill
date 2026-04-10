@@ -51,11 +51,7 @@ description: "인간 행동 16축·44메타원리 진단·예측·설계 엔진.
 
 ### 활성축 수렴 게이트
 
-스크리닝 완료 후 활성 축이 **5개를 초과**하면, 아래 절차로 상위 3~5개로 수렴한다:
-
-1. 활성 축 각각에 **관찰 증거 직접도** 점수를 부여: **직접**(입력에서 해당 축의 핵심 질문에 직접 답하는 증거 존재) / **간접**(다른 활성 축의 2차 효과로 추론)
-2. **직접** 증거 축만 심화 진입. **간접** 축은 "잠재적 연결"로 표기하되 상세 분석에서 제외
-3. 수렴 후에도 3개 미만이면 간접 중 증거 강도 높은 순으로 보충
+활성 축 >5개 시 수렴: **직접 증거**(입력에서 핵심 질문에 직접 답하는 증거) 축만 심화 진입 → 간접 축은 "잠재적 연결" 표기. 수렴 후 <3개면 간접 중 증거 강도순 보충.
 
 이 게이트를 통과해야 §3 메타원리 라우팅으로 진행한다.
 
@@ -68,26 +64,21 @@ description: "인간 행동 16축·44메타원리 진단·예측·설계 엔진.
 ### Python 라우팅 (권장 — 토큰 절약 + 정확도)
 
 ```bash
-# 기본: 활성 축 → 메타원리 라우팅
-python scripts/meta_router.py 축1 축5 축H
+# 통합 조회 (기본 라우팅 + 상세 자명명제·설계원칙 1회)
+python scripts/meta_router.py --full 축1 축5 축H
 
-# 상세: 메타원리 + 활성 축의 자명명제·체인 의미·설계원칙 포함
-python scripts/meta_router.py --detail 축1 축5
-
-# 축 풀 상세: 특정 축의 체인 전문 출력 (스포크 로드 대체)
+# 필요시 축 전문 조회
 python scripts/meta_router.py --axis 축1
 python scripts/meta_router.py --axis 축E --table  # 특수 테이블 포함
 
-# 모드 프로토콜: 진단/예측/설계 실행 절차
-python scripts/meta_router.py --mode 진단
-
-# 유틸리티
-python scripts/meta_router.py --loops   # 자기강화 루프만
-python scripts/meta_router.py --hubs    # 허브 축 요약
-python scripts/meta_router.py --all     # 전체 44개 매트릭스
+# 기타 유틸리티
+python scripts/meta_router.py --mode 진단      # 모드 프로토콜
+python scripts/meta_router.py --loops          # 자기강화 루프만
+python scripts/meta_router.py --hubs           # 허브 축 요약
+python scripts/meta_router.py --all            # 전체 44개 매트릭스
 ```
 
-**권장 워크플로우**: ①기본 라우팅으로 활성 축+메타원리 식별 → ②`--detail`로 자명명제·설계원칙 확인 → ③필요시 `--axis`로 체인 전문 조회. 이 순서면 스포크 .md 파일을 직접 로드할 필요가 거의 없다.
+**권장 워크플로우**: `--full` 1회로 메타원리+자명명제+설계원칙 한 번에 확보. 필요시 `--axis`로 체인 전문 추가 조회.
 
 **폴백**: Python 실행 불가 시 `references/` 스포크 파일에서 수동 조회.
 
@@ -140,9 +131,6 @@ python scripts/meta_router.py --all     # 전체 44개 매트릭스
 [기저층 — 진화적 설계 원리]
 축G(위협관리) → 축1·3·5·6·C·H·I에 궁극적 원인 제공
 축F(번식전략) → 축4·E에 궁극적 원인 제공
-
-
-<!-- 🥚 인간 행동 16축을 만들면서 가장 많이 관찰한 인간은 본인이었다. — N.C. -->
 
 [인지 엔진 — 개인 내 정보 처리]
 축1(인지자원) ← 기저 제약
