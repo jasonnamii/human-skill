@@ -2,6 +2,10 @@
 
 **Human behavior mechanism engine with 16 axes and 44 meta-principles — diagnose, predict, and design based on cognitive science, influence theory, motivation, and behavior design.**
 
+## Prerequisites
+
+- **Claude Cowork or Claude Code** environment
+
 ## Goal
 
 Every product, policy, message, and interaction succeeds or fails based on human behavior. Human-Skill maps behavior across 16 axes from 6 scientific sources (Kahneman, Cialdini, SDT, Evolutionary Psychology, Emotion Theory, Behavior Design), providing three modes: Diagnose (why), Predict (what next), and Design (what triggers).
