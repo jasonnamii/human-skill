@@ -1,0 +1,79 @@
+{
+  "skill": "human-skill",
+  "version": "1.0.0",
+  "created": "2026-04-17",
+  "purpose": "회귀 테스트 — 스킬 수정 시 3모드(진단·예측·설계) 기본 동작 보전 확인",
+  "cases": [
+    {
+      "id": "case-1-diagnose",
+      "mode": "진단",
+      "input": "팀원이 회의에서 의견을 안 냅니다. 1:1에서는 할 말이 많다고 하는데, 막상 회의만 들어가면 입을 닫습니다.",
+      "expected": {
+        "screening_performed": true,
+        "active_axes_min": ["축C", "축B"],
+        "active_axes_optional": ["축1", "축H"],
+        "meta_principles_applied": ["SM6"],
+        "hub_involvement": ["축H", "축I"],
+        "report_structure": ["핵심판정", "메커니즘서사", "시사점"],
+        "chain_number_specified": true,
+        "qc_checklist_passed": true
+      },
+      "anti_patterns": [
+        "16축 전체 나열 (스크리닝 없이 풀 로드)",
+        "개별 축만 나열하고 메타원리로 상호작용 해석 누락",
+        "스크리닝 테이블을 최종 산출물로 제출"
+      ]
+    },
+    {
+      "id": "case-2-predict",
+      "mode": "예측",
+      "input": "30대 직장인 타깃으로 '한 달 10만원 자동 저축' 앱을 출시하려 합니다. 가입률과 3개월 유지율을 예측해주세요.",
+      "expected": {
+        "screening_performed": true,
+        "active_axes_min": ["축3", "축E"],
+        "active_axes_optional": ["축D", "축I", "축H"],
+        "meta_principles_applied": ["SM6", "BM3"],
+        "probability_evidence_required": true,
+        "probability_tags_present": ["[통계]", "[유추]", "[전문가판단]", "[모델추정]"],
+        "probability_tags_min_count": 2,
+        "base_rate_provided": true,
+        "similar_case_cited": true,
+        "scenario_branching": true,
+        "report_structure": ["핵심판정", "메커니즘서사", "시사점"]
+      },
+      "anti_patterns": [
+        "확률 제시 없이 '가능성 높음'으로 뭉개기",
+        "근거 태그 없는 숫자 (예: '가입률 30%' 단독)",
+        "기저율 생략"
+      ]
+    },
+    {
+      "id": "case-3-design",
+      "mode": "설계",
+      "input": "사용자가 매일 앱을 열도록 만들고 싶습니다. 현재 DAU/MAU가 15%입니다.",
+      "expected": {
+        "screening_performed": true,
+        "active_axes_min": ["축I"],
+        "active_axes_optional": ["축E", "축H", "축B"],
+        "meta_principles_applied": ["BM3", "SM6"],
+        "meta_principles_optional": ["EmoM5"],
+        "hub_involvement": ["축I"],
+        "trigger_reverse_engineered": true,
+        "synergy_combination_proposed": true,
+        "risk_check_performed": true,
+        "evolution_axes_handling": "설계 레버 아님 명시 + 근접축 제안",
+        "report_structure": ["핵심판정", "메커니즘서사", "시사점"]
+      },
+      "anti_patterns": [
+        "진화축(F·G)을 직접 설계 대상화",
+        "허브 축(H·I·E) 무시하고 주변 축만 건드림",
+        "시너지 조합 없이 개별 트리거만 나열",
+        "리스크 체크 스킵"
+      ]
+    }
+  ],
+  "pass_criteria": {
+    "per_case": "expected의 required 항목 전부 충족 + anti_patterns 0건",
+    "overall": "3/3 케이스 통과 = GREEN, 2/3 = ORANGE, 1/3 이하 = RED"
+  }
+}
