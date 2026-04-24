@@ -103,6 +103,17 @@ python scripts/meta_router.py --all            # 전체 44개 매트릭스
 
 분석 과정(스크리닝·라우팅·메타원리 매트릭스)은 본문에 노출 금지 → 부록 이동. 본문은 핵심 판정→메커니즘 서사→시사점 3블록만. 각 블록 최소 3문장 서술형.
 
+
+### 🚨 MUST cascade → paper-engine (절대규칙)
+
+**리포트 산출 = paper-engine 허브 MUST 경유.** 이 스킬 단독 md/html 출력 = FAIL.
+
+- **진입점:** §4.5(또는 §3.5/§Phase 6) 리포트 변환 직후 paper-engine 발동
+- **paper-engine이 결정:** MODE_S/M/L · NYT구조 · 3패스삭제 · 4항밀도QC · design-skill cascade
+- **산출 포맷:** 기본 **순수 md** (div·style ✗). 사용자가 "HTML로·박스로·벤토로·시각화·카드로" 명시시에만 예외
+- **위반 감지:** md 파일에 `<div style>`·`<span style>` 삽입 = FAIL → 재작성
+
+
 ---
 
 ## §5. 모드별 실행 요약
