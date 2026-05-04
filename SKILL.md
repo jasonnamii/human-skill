@@ -104,17 +104,9 @@ python scripts/meta_router.py --all            # 전체 44개 매트릭스
 분석 과정(스크리닝·라우팅·메타원리 매트릭스)은 본문에 노출 금지 → 부록 이동. 본문은 핵심 판정→메커니즘 서사→시사점 3블록만. 각 블록 최소 3문장 서술형.
 
 
-### 🚨 MUST cascade → paper-engine (절대규칙)
+### 🚨 MUST cascade → paper-engine
+모든 산출물 paper-engine MUST 경유. → `paper-engine/references/_common/cascade-must.md`
 
-**리포트 산출 = paper-engine 허브 MUST 경유.** 이 스킬 단독 md/html 출력 = FAIL.
-
-- **진입점:** §4.5(또는 §3.5/§Phase 6) 리포트 변환 직후 paper-engine 발동
-- **paper-engine이 결정:** MODE_S/M/L · NYT구조 · 3패스삭제 · 4항밀도QC · design-skill cascade
-- **산출 포맷:** 기본 **순수 md** (div·style ✗). 사용자가 "HTML로·박스로·벤토로·시각화·카드로" 명시시에만 예외
-- **위반 감지:** md 파일에 `<div style>`·`<span style>` 삽입 = FAIL → 재작성
-
-
----
 
 ## §5. 모드별 실행 요약
 
@@ -192,17 +184,9 @@ bash evals/run-eval.sh   # 수동 실행 가이드 (cases.json 3케이스)
 ---
 
 
-## §INV NO_WORK_LABEL (산출물·대화 본질 보호)
+## §INV NO_WORK_LABEL
+산출물·대화 작업 라벨 ZERO. → `paper-engine/references/no-work-label.md`
 
-| 항목 | 정의 |
-|------|------|
-| RULE | 산출물·대화 = 인간 언어. 작업 라벨 ZERO. (1만 페이지 1단어 = FAIL) |
-| 판정 | "이 단어, 이 대화 밖 사람이 사전 없이 읽을 수 있나?" NO → 작업 라벨 → 금지 |
-| ALLOW | 업계 전문용어(SDT·NPS·UX) · 고유명사(Kahneman·Cialdini·진화심리학) · 법조문 |
-| CONVERT | 라벨 발견 → 실명·평문 풀어쓰기. 예) "16축(인지7·동기2·사회3·진화2·감정1·행동1)·44메타원리·진단/예측/설계 3모드" → 실제 축·원리 이름 / "재현 가능한 심리메커니즘" → 메커니즘 결과 평문 |
-| SELF_CHECK | 진단서·시나리오 출력 직전에서 자체 스캔. 1개라도 발견 = 차단·재작성. paper-engine cascade 경유 시 INV 13 자동 적용 |
-
----
 
 ## Gotchas
 
