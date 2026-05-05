@@ -1,7 +1,14 @@
 ---
 name: human-skill
 version: 1.0.0
-description: "16축·44메타원리 인간행동 진단·예측·설계. 16축(인지7·동기2·사회3·진화2·감정1·행동1) × 44메타원리 → 재현 가능한 심리메커니즘. P1: 휴먼스킬, human skill, 인간메커니즘, 행동분석, 동기분석, 심리분석, 행동예측. P2: 진단해줘, 예측해줘, 설계해줘, 분석해줘, diagnose behavior, predict, design trigger. P3: behavioral analysis, human mechanism, psychological mechanism, cognitive bias, motivation design. P4: 사용자 행동 진단시, 고객 반응 예측시, 넛지·트리거 설계시, 조직원 동기 분석시. P5: 진단서로, 리포트로, .md로, 시나리오로. NOT: 히트·자극설계·전파구조(→hit-skill), 카피라이팅(→copywriting-engine), 사업전략(→biz-skill), 조직운영(→management-skill), UX원리상담(→ux-advisor). 진단/예측/설계 3모드. 카너먼·치알디니·SDT·진화심리 통합."
+description: |
+  16축·44메타원리 인간행동 진단·예측·설계. 16축(인지7·동기2·사회3·진화2·감정1·행동1) × 44메타원리 → 재현 가능한 심리메커니즘.
+    P1: 휴먼스킬, human skill, 인간메커니즘, 행동분석, 동기분석, 심리분석, 행동예측, 인간행동, 심리메커니즘, 행동설계, 동기설계, 인지편향, 사회심리, 넛지설계, 트리거설계, 행동경제학, 심리학, 사용자심리, 고객심리, 조직심리, 동기부여, 의사결정심리, 인간이해, 행동과학.
+    P2: 진단해줘, 예측해줘, 설계해줘, 분석해줘, diagnose behavior, predict, design trigger, 심리 분석해줘, 왜 이런 행동 해, 동기 설계해줘.
+    P3: behavioral analysis, human mechanism, psychological mechanism, cognitive bias, motivation design, behavioral economics, nudge design.
+    P4: 사용자 행동 진단시, 고객 반응 예측시, 넛지·트리거 설계시, 조직원 동기 분석시.
+    P5: 진단서로, 리포트로, .md로, 시나리오로.
+    NOT: 히트·자극설계·전파구조(→hit-skill), 카피라이팅(→copywriting-skill), 사업전략(→biz-skill), 조직운영(→management-skill), UX원리상담(→ui-consulting).
 "@uses":
   - references/axes-cognitive.md
   - references/axes-social.md
