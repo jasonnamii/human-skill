@@ -8,6 +8,28 @@ description: "인간행동·의사결정·심리 동인을 16축으로 분석하
 
 인간분석, 행동분석, 심리분석, 의사결정, 동기분석 요청이 오면 사람·고객·조직의 행동을 원인과 조건으로 나누어 본다. 결론은 성격 단정이 아니라 관찰 가능한 행동 가설이어야 한다.
 
+
+## Skill Boundaries
+
+- **하는 것** — "인간행동·의사결정·심리 동인을 16축으로 분석하는 행동 진단 스킬.
+- **안 하는 것** — 인물 프로필(→profiler-skill), 카피(→copywriting-skill), 시장조사(→research-skill)."
+
+## When to Use
+
+- 사용자가 "분석해줘", "진단해줘", "왜 그런지 봐줘", "analyze behavior." 같은 표현으로 발동
+- 사람·고객·조직 행동의 원인을 판단할 때.
+- **안 쓸 때** — 인물 프로필(→profiler-skill), 카피(→copywriting-skill), 시장조사(→research-skill)."
+
+
+## Prerequisites
+
+| # | 체크 | 미충족 시 |
+|---|------|-----------|
+| 1 | 대상·입력 명확 (스킬 발동 의도 확인) | 1줄 확인 후 진입 |
+| 2 | references/ 폴더 접근 가능 | inline fallback |
+| 3 | scripts/ 실행 권한 | 권한 보정 후 재시도 |
+
+
 ## 절대 규칙
 
 1. 개인 비난이나 성격 낙인으로 쓰지 않는다.
@@ -58,7 +80,41 @@ description: "인간행동·의사결정·심리 동인을 16축으로 분석하
 
 인물 전체 프로필은 profiler-skill, 광고 카피는 copywriting-skill, 원자료 조사는 research-skill로 넘긴다.
 
-## Gotchas
+## Output Path
+
+| 산출물 | 경로 |
+|---|---|
+| 주 산출물 | `mnt/outputs/human-skill_{topic}_{YYYY-MM-DD}.md` |
+| 형식 | 리포트로, 진단서로, .md로. |
+| 리서치 결과 (해당 시) | `{VAULT}/_skills research/human-skill/{YYYY-MM-DD}_{topic}.md` |
+
+## Reference Index
+
+| 파일 | 내용 | 언제 |
+|---|---|---|
+| `references/axes-behavior.md` | axes behavior | 해당 단계 진입 시 |
+| `references/axes-cognitive.md` | axes cognitive | 해당 단계 진입 시 |
+| `references/axes-emotion.md` | axes emotion | 해당 단계 진입 시 |
+| `references/axes-evolution.md` | axes evolution | 해당 단계 진입 시 |
+| `references/axes-motivation.md` | axes motivation | 해당 단계 진입 시 |
+| `references/axes-social.md` | axes social | 해당 단계 진입 시 |
+| `references/low-usage-meta-guide.md` | low usage meta guide | 해당 단계 진입 시 |
+| `references/meta-principles.md` | meta principles | 해당 단계 진입 시 |
+| `references/mode-guide.md` | mode guide | 해당 단계 진입 시 |
+| `references/output-qc.md` | output qc | 해당 단계 진입 시 |
+| `references/report-template.md` | report template | 해당 단계 진입 시 |
+| `references/screening-table.md` | screening table | 해당 단계 진입 시 |
+
+
+## Next Phase
+
+본 스킬 작업 후 자연스럽게 이어지는 흐름:
+
+- 후속 작업 → `profiler-skill`
+- 후속 작업 → `copywriting-skill`
+- 후속 작업 → `research-skill`
+
+## Failure Modes (Gotchas)
 
 | 함정 | 대응 |
 |---|---|
