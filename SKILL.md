@@ -1,5 +1,6 @@
 ---
 name: human-skill
+version: 1.0
 description: |
   인간행동·의사결정·심리 동인을 16축으로 분석하는 행동 진단 스킬. 트리거: 인간분석, 행동분석, 심리분석, 의사결정, 동기분석, 분석해줘, 진단해줘, 왜 그런지 봐줘, analyze behavior. NOT: 인물 프로필(→profiler-skill), 카피(→copywriting-skill), 시장조사(→research-skill).
 ---
